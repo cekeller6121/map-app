@@ -1,4 +1,5 @@
 <!-- *** example map grabbed from Google *** -->
+<!-- my API key= AIzaSyA0FgOhga7HIeYfO6_dMTsHk0-t_27zq9E -->
 
 <!DOCTYPE html>
 <html>
@@ -7,30 +8,22 @@
     <meta name="viewport" content="initial-scale=1.0">
     <meta charset="utf-8">
     <link rel="stylesheet" href="./styles.css" type="text/css">
-    <style>
-      /* Always set the map height explicitly to define the size of the div
-       * element that contains the map. */
-      /*#map {
-        height: 50%;
-      }*/
-      /* Optional: Makes the sample page fill the window. */
-      html, body {
-        height: 100%;
-        margin: 0;
-        padding: 0;
-      }
-    </style>
   </head>
   <body>
     <div id="map"></div>
     <br>
     <div>
-      <form method="post" class="latLongInputForm">
+      <form action="/latlong" method="post" class="latLongInputForm">
         <input type="text" name="userLat" placeholder="enter latitude">
         <br>
         <input type="text" name="userLong" placeholder="enter longitude">
         <br>
         <input type="submit" value="Map it!">
+      </form>
+      <br>
+      <form action="/streetaddress" method="post" class="addressInputForm">
+        <input type="address" name="addressInput" placeholder="enter address">
+        <br>
       </form>
     </div>
     <script>

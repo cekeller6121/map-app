@@ -15,13 +15,20 @@ app.get('/', function (req, res) {
   res.render('map');
 });
 
-app.post('/', function (req, res) {
+app.get('/latlong', function (req, res) {
+  res.render('map');
+});
+
+app.post('/latlong', function (req, res) {
 
     let lat = req.body.userLat;
     let long = req.body.userLong;
 
     res.render('map', {lat:lat, long:long})
+});
 
+app.get('/streetaddress', function (req, res) {
+  res.render('map');
 });
 
 app.listen(3000, function(req, res) {
