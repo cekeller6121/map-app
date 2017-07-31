@@ -49,6 +49,27 @@ app.get('/streetaddress', function (req, res) {
   res.render('map');
 });
 
+app.post('/streetaddress', function (req, res) {
+  let stNum = req.body.streetNumberInput;
+  let stName = req.body.streetNameInput;
+  let city = req.body.cityInput;
+  let state = req.body.stateInput;
+
+  fetchMap = () => {
+
+  fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${stNum}+${stName},+${city},+${state}&key=AIzaSyA0FgOhga7HIeYfO6_dMTsHk0-t_27zq9E`)
+  .then(results => {
+           return results.json();
+           for (i = 0; i < myJSONResult.results.length; i++) {
+             sampleAddress[i] = myJSONResult.results[i].formatted_address;
+             console.log(sampleAddress[0])
+} return
+         })
+
+  }
+})
+
+
 app.listen(3000, function(req, res) {
   console.log("map app up on port 3000");
 });
