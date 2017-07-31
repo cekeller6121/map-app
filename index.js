@@ -1,6 +1,7 @@
 const express = require('express');
 const mustacheExpress = require('mustache-express');
 const bodyParser = require('body-parser');
+const fetchGoogleMaps = require('fetch-google-maps');
 
 var app = express();
 
@@ -12,6 +13,16 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 app.get('/', function (req, res) {
+  fetchGoogleMaps({
+    apiKey: 'AIzaSyA0FgOhga7HIeYfO6_dMTsHk0-t_27zq9E',
+    language: 'en',
+    libraries: ['geometry']
+}).then(( Maps ) => {
+    const map = new Maps.Map(document.getElementById('map'), {
+        zoom: 8,
+        center: new Maps.LatLng(-34.397, 150.644)
+    });
+});
   res.render('map');
 });
 
