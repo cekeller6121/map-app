@@ -1,7 +1,7 @@
 const express = require('express');
 const mustacheExpress = require('mustache-express');
 const bodyParser = require('body-parser');
-const fetchGoogleMaps = require('fetch-google-maps');
+// const fetchGoogleMaps = require('fetch-google-maps');
 
 var app = express();
 
@@ -12,19 +12,26 @@ app.use(express.static('./'));;
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
+
+ // *** I'm going to revisit this method of fetching the API later ***
+// app.get('/', function (req, res) {
+//   fetchGoogleMaps({
+//     apiKey: 'AIzaSyA0FgOhga7HIeYfO6_dMTsHk0-t_27zq9E',
+//     language: 'en',
+//     libraries: ['geometry']
+// }).then(( Maps ) => {
+//     const map = new Maps.Map(document.getElementById('map'), {
+//         zoom: 8,
+//         center: new Maps.LatLng(-34.397, 150.644)
+//     });
+// });
+//   res.render('map');
+// });
+
 app.get('/', function (req, res) {
-  fetchGoogleMaps({
-    apiKey: 'AIzaSyA0FgOhga7HIeYfO6_dMTsHk0-t_27zq9E',
-    language: 'en',
-    libraries: ['geometry']
-}).then(( Maps ) => {
-    const map = new Maps.Map(document.getElementById('map'), {
-        zoom: 8,
-        center: new Maps.LatLng(-34.397, 150.644)
-    });
+  res.render('map', {lat:35.993017, long:-78.904614});
 });
-  res.render('map');
-});
+
 
 app.get('/latlong', function (req, res) {
   res.render('map');
