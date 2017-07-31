@@ -49,6 +49,10 @@ app.get('/streetaddress', function (req, res) {
   res.render('map');
 });
 
+app.post('/streetaddress', function (req, res) {
+  res.render('map');
+});
+
 app.listen(3000, function(req, res) {
   console.log("map app up on port 3000");
 });

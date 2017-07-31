@@ -12,6 +12,8 @@
   <body>
     <div id="map"></div>
     <br>
+    <article><p>Enter a latitude and longitude or street address</p>
+    </article>
     <div>
       <form action="/latlong" method="post" class="latLongInputForm">
         <input type="text" name="userLat" placeholder="enter latitude">
@@ -24,6 +26,11 @@
       <form action="/streetaddress" method="post" class="addressInputForm">
         <input type="address" name="addressInput" placeholder="enter address">
         <br>
+        <input type="text" name="cityInput" placeholder="enter city">
+        <br>
+        <input type="text" name="stateInput" placeholder="enter state">
+        <br>
+        <input type="submit" value="Map it!">
       </form>
     </div>
     <script>
